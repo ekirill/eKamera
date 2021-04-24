@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		FCB4EB18263418780006365C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB17263418780006365C /* AppDelegate.swift */; };
 		FCB4EB1A263418780006365C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB19263418780006365C /* SceneDelegate.swift */; };
-		FCB4EB1C263418780006365C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB1B263418780006365C /* ViewController.swift */; };
 		FCB4EB1F263418780006365C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB4EB1D263418780006365C /* Main.storyboard */; };
 		FCB4EB21263418790006365C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB4EB20263418790006365C /* Assets.xcassets */; };
 		FCB4EB24263418790006365C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB4EB22263418790006365C /* LaunchScreen.storyboard */; };
+		FCB4EB2F26341BDA0006365C /* CamerasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB2E26341BDA0006365C /* CamerasViewController.swift */; };
+		FCB4EB33263425C60006365C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB32263425C60006365C /* Models.swift */; };
+		FCB4EB3A263441F50006365C /* CameraRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB39263441F50006365C /* CameraRowCellView.swift */; };
+		FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB3D2634705A0006365C /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FCB4EB14263418780006365C /* eKamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eKamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB4EB17263418780006365C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB4EB19263418780006365C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCB4EB1B263418780006365C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FCB4EB1E263418780006365C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCB4EB20263418790006365C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB4EB23263418790006365C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCB4EB25263418790006365C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCB4EB2E26341BDA0006365C /* CamerasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerasViewController.swift; sourceTree = "<group>"; };
+		FCB4EB32263425C60006365C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FCB4EB39263441F50006365C /* CameraRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRowCellView.swift; sourceTree = "<group>"; };
+		FCB4EB3D2634705A0006365C /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +64,11 @@
 			children = (
 				FCB4EB17263418780006365C /* AppDelegate.swift */,
 				FCB4EB19263418780006365C /* SceneDelegate.swift */,
-				FCB4EB1B263418780006365C /* ViewController.swift */,
 				FCB4EB1D263418780006365C /* Main.storyboard */,
+				FCB4EB3D2634705A0006365C /* ApiClient.swift */,
+				FCB4EB39263441F50006365C /* CameraRowCellView.swift */,
+				FCB4EB2E26341BDA0006365C /* CamerasViewController.swift */,
+				FCB4EB32263425C60006365C /* Models.swift */,
 				FCB4EB20263418790006365C /* Assets.xcassets */,
 				FCB4EB22263418790006365C /* LaunchScreen.storyboard */,
 				FCB4EB25263418790006365C /* Info.plist */,
@@ -137,9 +146,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB4EB1C263418780006365C /* ViewController.swift in Sources */,
 				FCB4EB18263418780006365C /* AppDelegate.swift in Sources */,
 				FCB4EB1A263418780006365C /* SceneDelegate.swift in Sources */,
+				FCB4EB2F26341BDA0006365C /* CamerasViewController.swift in Sources */,
+				FCB4EB3A263441F50006365C /* CameraRowCellView.swift in Sources */,
+				FCB4EB33263425C60006365C /* Models.swift in Sources */,
+				FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5V65V374R;
 				INFOPLIST_FILE = eKamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5V65V374R;
 				INFOPLIST_FILE = eKamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

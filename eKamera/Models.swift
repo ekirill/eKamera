@@ -1,8 +1,20 @@
-//
-//  Models.swift
-//  eKamera
-//
-//  Created by Кирилл Емельянов on 24.04.2021.
-//
-
 import Foundation
+
+struct Camera: Codable, Identifiable {
+    let id: String
+    let caption: String
+    let thumbnailUrl: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "uid"
+        case caption = "caption"
+        case thumbnailUrl = "thumb"
+    }
+}
+
+struct CamerasListResponse: Codable {
+    let count: Int
+    let next: String?
+    let previous: String?
+    let results: [Camera]
+}

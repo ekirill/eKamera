@@ -9,7 +9,7 @@ import UIKit
 
 class EventsViewController: UITableViewController {
     var eventsRepository: Repository<Event>?
-    var selectedCameraId: String?
+    var selectedEvent: Event?
     
     var cameraId: String? {
         didSet {
@@ -36,6 +36,12 @@ class EventsViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.tableFooterView = UIView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let playerView = segue.destination as? EventPlayerViewController, segue.identifier == "showPlayer" {
+            playerView.eventUrl = self.selectedEvent?.videoUrl
+        }
     }
     
     // MARK: - Table view data source
@@ -74,5 +80,15 @@ class EventsViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let repository = eventsRepository, let event = repository.getItem(indexPath.row) else {
+            os_log("unexpected error, could not find event data", log: OSLog.default, type: .error)
+            return
+        }
+        
+        self.selectedEvent = event
+        performSegue(withIdentifier: "showPlayer", sender: self)
     }
 }

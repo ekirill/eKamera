@@ -19,6 +19,7 @@
 		FCB4EB412634D9160006365C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB402634D9160006365C /* EventsViewController.swift */; };
 		FCB4EB44263563F20006365C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB43263563F20006365C /* Repository.swift */; };
 		FCB4EB4A263583D30006365C /* EventRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB49263583D30006365C /* EventRowCellView.swift */; };
+		FCB4EB4D2635E1290006365C /* EventPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB4C2635E1290006365C /* EventPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FCB4EB402634D9160006365C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		FCB4EB43263563F20006365C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FCB4EB49263583D30006365C /* EventRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRowCellView.swift; sourceTree = "<group>"; };
+		FCB4EB4C2635E1290006365C /* EventPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				FCB4EB17263418780006365C /* AppDelegate.swift */,
 				FCB4EB19263418780006365C /* SceneDelegate.swift */,
 				FCB4EB1D263418780006365C /* Main.storyboard */,
+				FCB4EB4C2635E1290006365C /* EventPlayerViewController.swift */,
 				FCB4EB3D2634705A0006365C /* ApiClient.swift */,
 				FCB4EB39263441F50006365C /* CameraRowCellView.swift */,
 				FCB4EB2E26341BDA0006365C /* CamerasViewController.swift */,
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB4EB4D2635E1290006365C /* EventPlayerViewController.swift in Sources */,
 				FCB4EB18263418780006365C /* AppDelegate.swift in Sources */,
 				FCB4EB1A263418780006365C /* SceneDelegate.swift in Sources */,
 				FCB4EB2F26341BDA0006365C /* CamerasViewController.swift in Sources */,

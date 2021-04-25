@@ -24,7 +24,9 @@ class EventRowCellView : UITableViewCell {
         startTime.text = ""
         if let dt = dateExtracter.date(from: event.startTime) {
             let now = Date()
-            if let nowDayOfEra = Calendar.current.ordinality(of: .day, in: .era, for: now), let dtDayOfEra = Calendar.current.ordinality(of: .day, in: .era, for: dt) {
+            if let nowDayOfEra = Calendar.current.ordinality(of: .day, in: .era, for: now),
+               let dtDayOfEra = Calendar.current.ordinality(of: .day, in: .era, for: dt)
+            {
                 if let fluent = fluentDates[nowDayOfEra-dtDayOfEra] {
                     startDate.text = fluent
                 } else {

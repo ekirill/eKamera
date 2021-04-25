@@ -225,10 +225,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="U24-X1-GrX"/>
+                    <connections>
+                        <segue destination="ugL-Ml-Sze" kind="show" identifier="showPlayer" id="dvC-8q-YUr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Is0-by-J2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1663.7681159420292" y="99.776785714285708"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="jq2-cd-dGH">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspectFill" id="ugL-Ml-Sze" customClass="EventPlayerViewController" customModule="eKamera" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="AOK-C2-Usx"/>
+                </avPlayerViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qIV-zy-nAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2557" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OM0-mq-LsS">

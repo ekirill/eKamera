@@ -3,9 +3,9 @@ import Foundation
 import UIKit
 
 class ApiClient {
-    let baseApiUrl = "https://ekirill.ru/api/v1/"
+    static let baseApiUrl = "https://ekirill.ru/api/v1/"
     
-    static func handleHttpErrors(response: URLResponse?, error: Error?, expectedMime: String?) {
+    private static func handleHttpErrors(response: URLResponse?, error: Error?, expectedMime: String?) {
         if let error = error {
             os_log("fetch fail: %s", log: OSLog.default, type: .error, error.localizedDescription)
             return
@@ -28,8 +28,8 @@ class ApiClient {
         }
     }
     
-    func getCameras(page: Int, completion: @escaping (CamerasListResponse) -> Void) {
-        let apiUrl = baseApiUrl + "cameras/"
+    static func getCameras(_ page: Int, completion: @escaping (ApiResponse<Camera>) -> Void) {
+        let apiUrl = ApiClient.baseApiUrl + "cameras/"
 
         guard var components = URLComponents(string: apiUrl) else {
             os_log("fetch fail: invalid url %s", log: OSLog.default, type: .error, apiUrl)
@@ -41,13 +41,14 @@ class ApiClient {
         ]
         let request = URLRequest(url: components.url!)
 
+        os_log("making request: %s", log: OSLog.default, type: .debug, request.debugDescription)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             ApiClient.handleHttpErrors(response: response, error: error, expectedMime: "application/json")
 
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let response = try decoder.decode(CamerasListResponse.self, from: data)
+                    let response = try decoder.decode(ApiResponse<Camera>.self, from: data)
                     
                     completion(response)
                 } catch let error {
@@ -59,7 +60,7 @@ class ApiClient {
         task.resume()
     }
     
-    func getThumbnail(thumnailUrl: String, completion: @escaping (UIImage) -> Void) {
+    static func getThumbnail(thumnailUrl: String, completion: @escaping (UIImage) -> Void) {
         guard let imageUrl = URL(string: thumnailUrl) else {
             os_log("fetch fail: invalid url %s", log: OSLog.default, type: .error, thumnailUrl)
             return

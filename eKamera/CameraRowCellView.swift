@@ -12,7 +12,7 @@ class CameraRowCellView : UITableViewCell {
 
         if let imageUrl = camera.thumbnailUrl {
             spinner.startAnimating()
-            ApiClient().getThumbnail(thumnailUrl: imageUrl) { image in
+            ApiClient.getThumbnail(thumnailUrl: imageUrl) { image in
                 DispatchQueue.main.async {
                     self.spinner.stopAnimating()
                     self.thumbnail.image = image

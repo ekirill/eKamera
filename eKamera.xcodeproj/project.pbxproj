@@ -16,6 +16,8 @@
 		FCB4EB33263425C60006365C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB32263425C60006365C /* Models.swift */; };
 		FCB4EB3A263441F50006365C /* CameraRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB39263441F50006365C /* CameraRowCellView.swift */; };
 		FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB3D2634705A0006365C /* ApiClient.swift */; };
+		FCB4EB412634D9160006365C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB402634D9160006365C /* EventsViewController.swift */; };
+		FCB4EB44263563F20006365C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB43263563F20006365C /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		FCB4EB32263425C60006365C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		FCB4EB39263441F50006365C /* CameraRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRowCellView.swift; sourceTree = "<group>"; };
 		FCB4EB3D2634705A0006365C /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		FCB4EB402634D9160006365C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		FCB4EB43263563F20006365C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				FCB4EB3D2634705A0006365C /* ApiClient.swift */,
 				FCB4EB39263441F50006365C /* CameraRowCellView.swift */,
 				FCB4EB2E26341BDA0006365C /* CamerasViewController.swift */,
+				FCB4EB43263563F20006365C /* Repository.swift */,
+				FCB4EB402634D9160006365C /* EventsViewController.swift */,
 				FCB4EB32263425C60006365C /* Models.swift */,
 				FCB4EB20263418790006365C /* Assets.xcassets */,
 				FCB4EB22263418790006365C /* LaunchScreen.storyboard */,
@@ -150,6 +156,8 @@
 				FCB4EB1A263418780006365C /* SceneDelegate.swift in Sources */,
 				FCB4EB2F26341BDA0006365C /* CamerasViewController.swift in Sources */,
 				FCB4EB3A263441F50006365C /* CameraRowCellView.swift in Sources */,
+				FCB4EB412634D9160006365C /* EventsViewController.swift in Sources */,
+				FCB4EB44263563F20006365C /* Repository.swift in Sources */,
 				FCB4EB33263425C60006365C /* Models.swift in Sources */,
 				FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */,
 			);
@@ -301,7 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5V65V374R;
 				INFOPLIST_FILE = eKamera/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,7 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5V65V374R;
 				INFOPLIST_FILE = eKamera/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

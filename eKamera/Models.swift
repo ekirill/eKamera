@@ -12,9 +12,9 @@ struct Camera: Codable, Identifiable {
     }
 }
 
-struct CamerasListResponse: Codable {
+struct ApiResponse<T: Codable & Identifiable>: Codable {
     let count: Int
     let next: String?
     let previous: String?
-    let results: [Camera]
+    let results: [T]
 }

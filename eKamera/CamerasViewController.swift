@@ -9,36 +9,20 @@ import os
 import UIKit
 
 class CamerasViewController: UITableViewController {
-    let apiClient = ApiClient()
-    var cameras: [String:Camera] = [:]
-    var camerasOrder: [String] = []
-    var totalCameras = 0
-    var pagesLoaded = 0
+    let camerasRepository = Repository<Camera>(itemsFetcher: ApiClient.getCameras)
+    var selectedCameraId: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchPage()
-    }
-    
-    func fetchPage() {
-        let pageToLoad = self.pagesLoaded + 1
         
-        apiClient.getCameras(page: pageToLoad) { response in
-            self.totalCameras = response.count
-            self.pagesLoaded = pageToLoad
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        camerasRepository.fetchFirst() {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-            }
-            
-            for camera in response.results {
-                self.cameras[camera.id] = camera
-                self.camerasOrder.append(camera.id)
-                os_log("got camera UID: %s [%s]", log: OSLog.default, type: .debug, camera.id, camera.caption)
             }
         }
     }
@@ -50,31 +34,38 @@ class CamerasViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return totalCameras
-    }
-    
-    func getCamera(_ indexPath: IndexPath) -> Camera? {
-        var camera: Camera?
-
-        if indexPath.row < self.camerasOrder.count {
-            let cameraUid = self.camerasOrder[indexPath.row]
-            camera = self.cameras[cameraUid]
-        }
-        
-        return camera
+        return camerasRepository.totalItems
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let camera = getCamera(indexPath) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CameraRowCell", for: indexPath)
-            if let cameraCell = cell as? CameraRowCellView {
-                cameraCell.configure(camera)
-            }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CameraRowCell", for: indexPath)
 
+        guard let cameraCell = cell as? CameraRowCellView else {
+            os_log("unexpected error, CameraRowCell is not CameraRowCellView", log: OSLog.default, type: .error)
             return cell
-        } else {
-            return tableView.dequeueReusableCell(withIdentifier: "SpinnerCell", for: indexPath)
         }
+        
+        guard let camera = camerasRepository.getItem(indexPath.row) else {
+            os_log("unexpected error, could not find camera data", log: OSLog.default, type: .error)
+            return cell
+        }
+
+        cameraCell.configure(camera)
+
+        return cameraCell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let camera = camerasRepository.getItem(indexPath.row) else {
+            os_log("unexpected error, could not find camera data", log: OSLog.default, type: .error)
+            return
+        }
+        
+        self.selectedCameraId = camera.id
+        performSegue(withIdentifier: "showEvents", sender: self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
 }

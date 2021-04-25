@@ -12,7 +12,7 @@ class Repository<T: Codable & Identifiable> {
     var fetcher: (Int, @escaping (ApiResponse<T>) -> Void) -> Void
     var successFetch: () -> Void
     var items: [String:T] = [:]
-    var itemsOrder: [String] = []
+    var itemsOrder: [Int:[String]] = [:]
     var _totalItems: Int  = 0
     var totalItems: Int {
         get {
@@ -42,12 +42,12 @@ class Repository<T: Codable & Identifiable> {
             return item
         }
         
-        if index < self.itemsOrder.count {
-            let itemId = self.itemsOrder[index]
-            item = self.items[itemId]
-        } else if index < self.totalItems {
-            let pageToLoad = index / pageSize + 1
-            fetchPage(pageToLoad)
+        let page = index / pageSize + 1
+        let indexOnPage = index % pageSize
+        if let loaded = self.pagesLoaded[page], loaded, let pageOrder = self.itemsOrder[page], indexOnPage < pageOrder.count {
+            item = self.items[pageOrder[indexOnPage]]
+        } else {
+            fetchPage(page)
         }
         
         return item
@@ -68,14 +68,17 @@ class Repository<T: Codable & Identifiable> {
                 // TODO: think about case, when new items appear on the first page and reorder all other pages
             }
 
+            self.itemsOrder[page] = []
+            var ordering: [String] = []
             for item in response.results {
                 guard let itemId = item.id as? String else {
                     os_log("item id type is not String", log: OSLog.default, type: .error)
                     continue
                 }
                 self.items[itemId] = item
-                self.itemsOrder.append(itemId)
+                ordering.append(itemId)
             }
+            self.itemsOrder[page] = ordering
             
             self.totalItems = response.count
             self.pagesLoaded[page] = true

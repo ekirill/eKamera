@@ -130,17 +130,23 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-rj-BJc">
                                             <rect key="frame" x="28" y="19" width="358" height="251"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgq-DL-W3O">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="15.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7of-mz-Kg0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="44"/>
+                                                    <rect key="frame" x="0.0" y="23.5" width="358" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ij-O3-BXU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrs-An-yjb">
-                                                            <rect key="frame" x="183" y="0.0" width="175" height="44"/>
+                                                            <rect key="frame" x="183" y="0.0" width="175" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -172,6 +178,10 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vgq-DL-W3O" firstAttribute="leading" secondItem="aEz-rj-BJc" secondAttribute="leading" id="PIo-aL-SXQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vgq-DL-W3O" secondAttribute="trailing" id="fnS-Gy-Aar"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -184,6 +194,7 @@
                                 <connections>
                                     <outlet property="duration" destination="Rrs-An-yjb" id="X7q-fv-cdH"/>
                                     <outlet property="spinner" destination="wOB-Yp-nvM" id="zbC-zh-CVg"/>
+                                    <outlet property="startDate" destination="Vgq-DL-W3O" id="vQb-gB-UZ3"/>
                                     <outlet property="startTime" destination="5Ij-O3-BXU" id="zQ1-28-Hbw"/>
                                     <outlet property="thumbnail" destination="oEH-SP-6so" id="gdc-gi-6Wu"/>
                                 </connections>

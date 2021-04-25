@@ -18,6 +18,7 @@
 		FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB3D2634705A0006365C /* ApiClient.swift */; };
 		FCB4EB412634D9160006365C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB402634D9160006365C /* EventsViewController.swift */; };
 		FCB4EB44263563F20006365C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB43263563F20006365C /* Repository.swift */; };
+		FCB4EB4A263583D30006365C /* EventRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB49263583D30006365C /* EventRowCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FCB4EB3D2634705A0006365C /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		FCB4EB402634D9160006365C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		FCB4EB43263563F20006365C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		FCB4EB49263583D30006365C /* EventRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRowCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				FCB4EB2E26341BDA0006365C /* CamerasViewController.swift */,
 				FCB4EB43263563F20006365C /* Repository.swift */,
 				FCB4EB402634D9160006365C /* EventsViewController.swift */,
+				FCB4EB49263583D30006365C /* EventRowCellView.swift */,
 				FCB4EB32263425C60006365C /* Models.swift */,
 				FCB4EB20263418790006365C /* Assets.xcassets */,
 				FCB4EB22263418790006365C /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 				FCB4EB3A263441F50006365C /* CameraRowCellView.swift in Sources */,
 				FCB4EB412634D9160006365C /* EventsViewController.swift in Sources */,
 				FCB4EB44263563F20006365C /* Repository.swift in Sources */,
+				FCB4EB4A263583D30006365C /* EventRowCellView.swift in Sources */,
 				FCB4EB33263425C60006365C /* Models.swift in Sources */,
 				FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */,
 			);

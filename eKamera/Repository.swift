@@ -8,48 +8,66 @@ import os
 import Foundation
 
 class Repository<T: Codable & Identifiable> {
+    let pageSize = 20
     var fetcher: (Int, @escaping (ApiResponse<T>) -> Void) -> Void
+    var successFetch: () -> Void
     var items: [String:T] = [:]
     var itemsOrder: [String] = []
-    var totalItems = 0
-    var pagesLoaded = 0
-    
-    init(itemsFetcher: @escaping (Int, @escaping (ApiResponse<T>) -> Void) -> Void ) {
-        fetcher = itemsFetcher
+    var _totalItems: Int  = 0
+    var totalItems: Int {
+        get {
+            if isEmpty {
+                fetchPage(1)
+            }
+            return _totalItems
+        }
+        set (newVal) {
+            _totalItems = newVal
+        }
     }
+    var pagesLoaded: [Int:Bool] = [:]
+    var pagesLoading: [Int:Bool] = [:]
+    var isEmpty = true
     
-    func isEmpty() -> Bool {
-        return self.pagesLoaded == 0
+    init(itemsFetcher: @escaping (Int, @escaping (ApiResponse<T>) -> Void) -> Void, onSuccessFetch: @escaping () -> Void) {
+        fetcher = itemsFetcher
+        successFetch = onSuccessFetch
     }
     
     func getItem(_ index: Int) -> T? {
         var item: T?
-
+        
+        if isEmpty {
+            fetchPage(1)
+            return item
+        }
+        
         if index < self.itemsOrder.count {
             let itemId = self.itemsOrder[index]
             item = self.items[itemId]
+        } else if index < self.totalItems {
+            let pageToLoad = index / pageSize + 1
+            fetchPage(pageToLoad)
         }
         
         return item
     }
     
-    func fetchFirst(_ completion: @escaping () -> Void) {
-        if isEmpty() {
-            fetchMore(completion)
+    func fetchPage(_ page: Int) {
+        if let loading = self.pagesLoading[page], loading {
+            return
         }
-    }
-    
-    func fetchMore(_ completion: @escaping () -> Void) {
-        let pageToLoad = self.pagesLoaded + 1
-        
-        fetcher(pageToLoad) { response in
+
+        self.pagesLoading[page] = true
+        fetcher(page) { [weak self] response in
+            guard let self = self else {
+                return
+            }
+            
             if self.totalItems > 0 && self.totalItems != response.count {
                 // TODO: think about case, when new items appear on the first page and reorder all other pages
             }
 
-            self.totalItems = response.count
-            self.pagesLoaded = pageToLoad
-            
             for item in response.results {
                 guard let itemId = item.id as? String else {
                     os_log("item id type is not String", log: OSLog.default, type: .error)
@@ -59,7 +77,12 @@ class Repository<T: Codable & Identifiable> {
                 self.itemsOrder.append(itemId)
             }
             
-            completion()
+            self.totalItems = response.count
+            self.pagesLoaded[page] = true
+            self.pagesLoading[page] = false
+            self.isEmpty = false
+            
+            self.successFetch()
         }
     }
 }

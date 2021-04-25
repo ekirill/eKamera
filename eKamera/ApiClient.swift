@@ -28,7 +28,7 @@ class ApiClient {
         }
     }
     
-    static func getCameras(_ page: Int, completion: @escaping (ApiResponse<Camera>) -> Void) {
+    static func getCameras(_ page: Int, _ completion: @escaping (ApiResponse<Camera>) -> Void) {
         let apiUrl = ApiClient.baseApiUrl + "cameras/"
 
         guard var components = URLComponents(string: apiUrl) else {
@@ -49,6 +49,44 @@ class ApiClient {
                 do {
                     let decoder = JSONDecoder()
                     let response = try decoder.decode(ApiResponse<Camera>.self, from: data)
+                    
+                    completion(response)
+                } catch let error {
+                    os_log("fetch fail: invalid json %s", log: OSLog.default, type: .error, error.localizedDescription)
+                    return
+                }
+            }
+        }
+        task.resume()
+    }
+
+    static func getEventsFetcher(forCameraId camerId: String) -> (Int, @escaping (ApiResponse<Event>) -> Void) -> Void {
+        return { page, completion in
+            return ApiClient.getEvents(camerId, page, completion)
+        }
+    }
+
+    static func getEvents(_ cameraId: String, _ page: Int, _ completion: @escaping (ApiResponse<Event>) -> Void) {
+        let apiUrl = ApiClient.baseApiUrl + "cameras/\(cameraId)/events/"
+
+        guard var components = URLComponents(string: apiUrl) else {
+            os_log("fetch fail: invalid url %s", log: OSLog.default, type: .error, apiUrl)
+            return
+        }
+
+        components.queryItems = [
+            URLQueryItem(name: "page", value: String(page))
+        ]
+        let request = URLRequest(url: components.url!)
+
+        os_log("making request: %s", log: OSLog.default, type: .debug, request.debugDescription)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            ApiClient.handleHttpErrors(response: response, error: error, expectedMime: "application/json")
+
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(ApiResponse<Event>.self, from: data)
                     
                     completion(response)
                 } catch let error {

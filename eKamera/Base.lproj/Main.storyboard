@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h6G-vn-SXE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h6G-vn-SXE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CameraRowCell" rowHeight="293" id="K3g-vT-UtZ" userLabel="CameraRowCell" customClass="CameraRowCellView" customModule="eKamera" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="293"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="293"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K3g-vT-UtZ" id="Uka-eX-Xvq">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="293"/>
@@ -78,7 +78,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpinnerCell" id="0M4-u5-vbN">
-                                <rect key="frame" x="0.0" y="321" width="414" height="62.5"/>
+                                <rect key="frame" x="0.0" y="317.5" width="414" height="62.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0M4-u5-vbN" id="Jhb-PJ-UEG">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
@@ -103,6 +103,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Qck-i2-fkP"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="r8V-HZ-DTG">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="56O-Hl-xyz" kind="show" identifier="showEvents" id="k1r-jm-cBx"/>
                     </connections>
@@ -121,7 +125,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventRowCell" rowHeight="289" id="NW1-d2-4LO" userLabel="EventRowCell" customClass="EventRowCellView" customModule="eKamera" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="289"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="289"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NW1-d2-4LO" id="lfc-9F-hLU">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>
@@ -200,7 +204,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpinnerCell" id="xd9-6R-PkL">
-                                <rect key="frame" x="0.0" y="317" width="414" height="62.5"/>
+                                <rect key="frame" x="0.0" y="313.5" width="414" height="62.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xd9-6R-PkL" id="Q22-DN-wXG">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
@@ -225,6 +229,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="U24-X1-GrX"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="D5z-mf-7NR">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="ugL-Ml-Sze" kind="show" identifier="showPlayer" id="dvC-8q-YUr"/>
                     </connections>

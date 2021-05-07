@@ -9,24 +9,23 @@ import os
 import UIKit
 
 class CamerasViewController: UITableViewController {
-    var camerasRepository: Repository<Camera>?
     var selectedCameraId: String?
+    
+    // TODO: singletone or injection
+    var dataSource: EKDataSource = EKDataSource<Camera>(
+        itemsFetcher: ApiClient.getCameras,
+        cellTemplateName: "CameraRowCell"
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = dataSource
+
+        // to remove empty rows after data
         tableView.tableFooterView = UIView()
         
-        camerasRepository = Repository<Camera>(
-            itemsFetcher: ApiClient.getCameras,
-            onSuccessFetch: { [weak self] in
-                if let self = self {
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        )
+        refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,45 +33,21 @@ class CamerasViewController: UITableViewController {
             eventsView.cameraId = self.selectedCameraId
         }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let repository = camerasRepository {
-            return repository.totalItems
-        }
-
-        return 0
-    }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SpinnerCell", for: indexPath)
-
-        if let repository = camerasRepository, let camera = repository.getItem(indexPath.row) {
-            guard let cameraCell = tableView.dequeueReusableCell(withIdentifier: "CameraRowCell", for: indexPath) as? CameraRowCellView else {
-                os_log("unexpected error, could not fetch camera data", log: OSLog.default, type: .error)
-                return cell
-            }
-
-            cameraCell.configure(camera)
-            
-            return cameraCell
-        }
-
-        return cell
+    @objc func refresh(sender:AnyObject)
+    {
+        dataSource.clear()
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let repository = camerasRepository, let camera = repository.getItem(indexPath.row) else {
+        guard let item = dataSource.getItem(indexPath.row, tableView: tableView) else {
             os_log("unexpected error, could not find camera data", log: OSLog.default, type: .error)
             return
         }
         
-        self.selectedCameraId = camera.id
+        self.selectedCameraId = item.id
         performSegue(withIdentifier: "showEvents", sender: self)
     }
 }

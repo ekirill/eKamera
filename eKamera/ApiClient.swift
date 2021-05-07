@@ -37,7 +37,8 @@ class ApiClient {
         }
 
         components.queryItems = [
-            URLQueryItem(name: "page", value: String(page))
+            URLQueryItem(name: "page", value: String(page)),
+            URLQueryItem(name: "ts", value: String(Int64(Date().timeIntervalSince1970))),
         ]
         let request = URLRequest(url: components.url!)
 
@@ -75,7 +76,8 @@ class ApiClient {
         }
 
         components.queryItems = [
-            URLQueryItem(name: "page", value: String(page))
+            URLQueryItem(name: "page", value: String(page)),
+            URLQueryItem(name: "ts", value: String(Int64(Date().timeIntervalSince1970))),
         ]
         let request = URLRequest(url: components.url!)
 

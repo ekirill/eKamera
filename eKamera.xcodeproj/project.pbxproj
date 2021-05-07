@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC3766F42645AC8D00D30C7E /* EKDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3766F32645AC8D00D30C7E /* EKDataSource.swift */; };
+		FC3766F62645CDD400D30C7E /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3766F52645CDD400D30C7E /* ConfigurableCell.swift */; };
 		FCB4EB18263418780006365C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB17263418780006365C /* AppDelegate.swift */; };
 		FCB4EB1A263418780006365C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB19263418780006365C /* SceneDelegate.swift */; };
 		FCB4EB1F263418780006365C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB4EB1D263418780006365C /* Main.storyboard */; };
@@ -17,12 +19,13 @@
 		FCB4EB3A263441F50006365C /* CameraRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB39263441F50006365C /* CameraRowCellView.swift */; };
 		FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB3D2634705A0006365C /* ApiClient.swift */; };
 		FCB4EB412634D9160006365C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB402634D9160006365C /* EventsViewController.swift */; };
-		FCB4EB44263563F20006365C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB43263563F20006365C /* Repository.swift */; };
 		FCB4EB4A263583D30006365C /* EventRowCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB49263583D30006365C /* EventRowCellView.swift */; };
 		FCB4EB4D2635E1290006365C /* EventPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4EB4C2635E1290006365C /* EventPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC3766F32645AC8D00D30C7E /* EKDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKDataSource.swift; sourceTree = "<group>"; };
+		FC3766F52645CDD400D30C7E /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		FCB4EB14263418780006365C /* eKamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eKamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB4EB17263418780006365C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB4EB19263418780006365C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		FCB4EB39263441F50006365C /* CameraRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRowCellView.swift; sourceTree = "<group>"; };
 		FCB4EB3D2634705A0006365C /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		FCB4EB402634D9160006365C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		FCB4EB43263563F20006365C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FCB4EB49263583D30006365C /* EventRowCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRowCellView.swift; sourceTree = "<group>"; };
 		FCB4EB4C2635E1290006365C /* EventPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,8 +78,9 @@
 				FCB4EB4C2635E1290006365C /* EventPlayerViewController.swift */,
 				FCB4EB3D2634705A0006365C /* ApiClient.swift */,
 				FCB4EB39263441F50006365C /* CameraRowCellView.swift */,
+				FC3766F52645CDD400D30C7E /* ConfigurableCell.swift */,
 				FCB4EB2E26341BDA0006365C /* CamerasViewController.swift */,
-				FCB4EB43263563F20006365C /* Repository.swift */,
+				FC3766F32645AC8D00D30C7E /* EKDataSource.swift */,
 				FCB4EB402634D9160006365C /* EventsViewController.swift */,
 				FCB4EB49263583D30006365C /* EventRowCellView.swift */,
 				FCB4EB32263425C60006365C /* Models.swift */,
@@ -164,8 +167,9 @@
 				FCB4EB2F26341BDA0006365C /* CamerasViewController.swift in Sources */,
 				FCB4EB3A263441F50006365C /* CameraRowCellView.swift in Sources */,
 				FCB4EB412634D9160006365C /* EventsViewController.swift in Sources */,
-				FCB4EB44263563F20006365C /* Repository.swift in Sources */,
+				FC3766F62645CDD400D30C7E /* ConfigurableCell.swift in Sources */,
 				FCB4EB4A263583D30006365C /* EventRowCellView.swift in Sources */,
+				FC3766F42645AC8D00D30C7E /* EKDataSource.swift in Sources */,
 				FCB4EB33263425C60006365C /* Models.swift in Sources */,
 				FCB4EB3E2634705A0006365C /* ApiClient.swift in Sources */,
 			);
